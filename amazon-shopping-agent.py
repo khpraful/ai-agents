@@ -31,16 +31,38 @@ def submit_query(api_key, session_id, query):
     return query_response.json()
 
 def main():
-    st.title("AI Agents")
+    st.title("Amazon AI Agent")
     st.image("https://res-console.cloudinary.com/diadamgr7/media_explorer_thumbnails/6180f4fe63e1b743533688a6e2ab5117/detailed")
 
     # Sidebar for API key and external user ID
+    st.markdown(
+    """
+    <style>
+    /* Change sidebar background color */
+    [data-testid="stSidebar"] {
+        background-color: #ADD8E6; /* Light blue */
+    }
+
+    /* Change sidebar text color */
+    [data-testid="stSidebar"] .css-1d391kg {
+        color: black;
+    }
+    
+    /* Change sidebar header font size */
+    [data-testid="stSidebar"] h2 {
+        font-size: 28px;
+        color: #333333;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
     st.sidebar.header("Enter Credentials")
     api_key = st.sidebar.text_input("API Key", type="password")
     external_user_id = st.sidebar.text_input("User ID", type = "password")
 
     if not api_key or not external_user_id:
-        st.warning("Please enter your API key and user ID in the sidebar.")
+        st.error("Please enter your API Key and User ID in the sidebar to continue.")
         return
 
     # Create session button

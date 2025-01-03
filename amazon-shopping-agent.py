@@ -2,6 +2,23 @@ import streamlit as st
 import requests
 
 def create_chat_session(api_key, external_user_id):
+    """
+    Creates a new chat session using the provided API key and external user ID.
+
+    This function sends a POST request to the chat session creation endpoint
+    with the necessary headers and body data.
+
+    Args:
+        api_key (str): The API key for authentication.
+        external_user_id (str): The external user ID to associate with the session.
+
+    Returns:
+        str: The ID of the newly created chat session.
+
+    Raises:
+        requests.exceptions.RequestException: If there's an error in the HTTP request.
+        KeyError: If the expected data is not present in the API response.
+    """
     create_session_url = 'https://api.on-demand.io/chat/v1/sessions'
     create_session_headers = {
         'apikey': api_key

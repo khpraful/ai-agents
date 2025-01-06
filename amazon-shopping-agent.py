@@ -109,4 +109,5 @@ def main():
         st.info("Create a chat session first before submitting queries.")
 
 if __name__ == "__main__":
+    print("Agent Testing...")
     main()
